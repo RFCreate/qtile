@@ -171,6 +171,11 @@ if __name__ == "__main__":
             # Works only when GDK_BACKEND is x11
             win.set_urgency_hint(True)
 
+            context = win.get_window().get_display().get_app_launch_context()
+            notify_id = context.get_startup_notify_id()
+            win.set_startup_id(notify_id)
+            win.present()
+
         # Time before changing urgency
         GLib.timeout_add(500, gtk_set_urgency_hint)
 
