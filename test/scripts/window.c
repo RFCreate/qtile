@@ -1,4 +1,6 @@
 #include <gtk/gtk.h>
+#include <gdk/gdkdisplay.h>
+#include <gdk/gdkapplaunchcontext.h>
 
 int main(int argc, char *argv[]) {
     gtk_init(&argc, &argv);
