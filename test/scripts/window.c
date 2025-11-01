@@ -1,6 +1,4 @@
 #include <gtk/gtk.h>
-#include <gdk/gdkdisplay.h>
-#include <gdk/gdkapplaunchcontext.h>
 
 int main(int argc, char *argv[]) {
     gtk_init(&argc, &argv);
@@ -12,7 +10,7 @@ int main(int argc, char *argv[]) {
     // Set startup notification ID and present the window
     GdkDisplay *display = gtk_widget_get_display(win);
     GdkAppLaunchContext *context = gdk_display_get_app_launch_context(display);
-    const gchar *notify_id = gdk_app_launch_context_get_startup_notify_id(context);
+    const gchar *notify_id = g_app_launch_context_get_startup_notify_id((GAppLaunchContext *) context, NULL, NULL);
     gtk_window_set_startup_id(GTK_WINDOW(win), notify_id);
     gtk_window_present(GTK_WINDOW(win));
 
