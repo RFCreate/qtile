@@ -245,8 +245,13 @@ if __name__ == "__main__":
             )
         )
 
+    # Quit on every key except 'z'
+    def on_key_press(widget, event):
+        if event.keyval != Gdk.KEY_z:
+            Gtk.main_quit()
+
     win.connect("destroy", Gtk.main_quit)
-    win.connect("key-press-event", Gtk.main_quit)
+    win.connect("key-press-event", on_key_press)
     win.show_all()
 
     Gtk.main()
