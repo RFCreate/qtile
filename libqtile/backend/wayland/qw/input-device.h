@@ -3,6 +3,8 @@
 
 #include <libinput.h>
 #include <wlr/backend/libinput.h>
+#include <wlr/types/wlr_seat.h>
+
 struct qw_input_device {
     // Private data
     struct qw_server *server;
